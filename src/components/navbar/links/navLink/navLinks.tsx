@@ -6,7 +6,14 @@ import styles from './navLinks.module.css';
 import { usePathname } from 'next/navigation';
 
 
-const NavLink = ({ item }) => {
+interface NavLinkProps {
+    item: {
+        path: string;
+        title: string;
+    };
+}
+
+const NavLink = ({ item }: NavLinkProps) => {
     const pathName = usePathname();
 
     return (

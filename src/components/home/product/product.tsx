@@ -52,11 +52,11 @@ export default function Products() {
                     {Array.isArray(products) ? (
                         products.map((product) => (
                             <div className={styles['product-items']} key={product.ID}>
-                                <a className={styles["product-items-image"]} href={["/"]}>
+                                <a className={styles["product-items-image"]} href="/">
                                     <img src={product.source} alt={product.name} />
                                 </a>
                                 <div className={styles['products-details']}>
-                                    <a href={["/ "]}>                   {/* Ganti product.source */}
+                                    <a href="/ ">                   {/* Ganti product.source */}
                                         <div className={styles.brand}>
                                             {product.brand}
                                         </div>

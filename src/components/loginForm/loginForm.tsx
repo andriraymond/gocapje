@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { authenticateUser } from '@/lib/auth.js';
 import { useRouter } from 'next/navigation'
+import { FormEvent, MouseEvent } from 'react';
 import styles from "./loginForm.module.css";
 import Link from "next/link";
 
@@ -10,14 +11,16 @@ const LoginForm = () => {
     const [error, setError] = useState('');
     const router = useRouter();
 
-    const handleLogin = async (e) => {
+    const handleLogin = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const { success, error } = await authenticateUser(email, password);
+        const { success, error: loginError } = await authenticateUser(email, password);
         if (success) {
             localStorage.setItem('isLoggedIn', 'true');
             router.push('/');
         } else {
-            setError(error);
+            if(loginError){
+                setError(loginError);
+            }
         }
     };
 

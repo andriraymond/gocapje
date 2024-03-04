@@ -1,0 +1,26 @@
+.navbar {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  padding: 0 100px;
+  z-index: var(--navbar);
+  background-color: #252525;
+  color: white;
+  border: var(--border-line-red);
+}
+
+.container {
+  display: inherit;
+  width: 100%;
+  height: 60px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand, .logo, .brand img {
+  display: inherit;
+  max-height: 40px;
+  height: 100%;
+  font-size: 30px;
+  font-weight: bold;
+}

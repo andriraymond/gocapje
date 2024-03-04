@@ -1,0 +1,93 @@
+"use client"
+import { useState, useEffect } from 'react';
+import Image from 'next/image';
+import styles from './carousell.module.css';
+
+const carousell = [
+    {
+        id: 1,
+        title: 'Maecenas mattis egestas',
+        description: 'Erdum et melesuada fames ac ante ipsum primis in faucibus unpendisse porta.',
+        image: '/carousell/shopee-01.jpeg',
+        URL: 'https://andriraymond.site'
+    },
+    {
+        id: 2,
+        title: '2 Maecenas mattis egestas',
+        description: '2 Erdum et melesuada fames ac ante ipsum primis in faucibus unpendisse porta.',
+        image: '/carousell/shopee-02.png',
+        URL: 'https://andriraymond.medium.com'
+    }
+];
+
+const HomeCarousell = () => {
+    const [currentSlide, setCurrentSlide] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentSlide(currentSlide => (currentSlide + 1) % carousell.length);
+        }, 2000); // Ganti gambar setiap 5 detik
+
+        return () => clearInterval(interval);
+    }, []);
+
+    return (
+        <div className={styles.carousell}>
+            <div className={styles.image}>
+                <a href={carousell[currentSlide].URL}>
+                    <Image
+                        src={carousell[currentSlide].image}
+                        alt={carousell[currentSlide].title}
+                        width={900}
+                        height={600}
+                    />
+                </a>
+            </div>
+        </div>
+    );
+};
+
+export default HomeCarousell;
+
+// import Image from "next/image";
+// import styles from "./carousell.module.css";
+
+// const carousell = [
+//     {
+//         id          : 1,
+//         title       : 'Maecenas mattis egestas',
+//         description : 'Erdum et melesuada fames ac ante ipsum primis in faucibus unpendisse porta.',
+//         image       : '/carousell/shopee-01.jpeg',
+//         URL         : 'https://andriraymond.site'
+//     },
+    
+//     {
+//         id          : 2,
+//         title       : '2 Maecenas mattis egestas',
+//         description : '2 Erdum et melesuada fames ac ante ipsum primis in faucibus unpendisse porta.',
+//         image       : '/carousell/shopee-02.png',
+//         URL         : 'https://andriraymond.medium.com'
+//     }
+// ]
+
+// const HomeCarousell = () => {
+//     return (
+//         <div className={styles.carousell}>
+//             {carousell.map(carousel => (
+//                 <div className={styles.image} key={carousel.id}>
+//                     <a href={carousel.URL}>
+//                     <Image
+//                     src={carousel.image}
+//                     alt={carousel.title}
+//                     width={900}
+//                     height={600}
+//                     />
+//                     </a>
+//                     {/* <a href={carousel.URL}>Klik</a> */}
+//                 </div>
+//             ))}
+//         </div>
+//     );
+// }
+
+// export default HomeCarousell

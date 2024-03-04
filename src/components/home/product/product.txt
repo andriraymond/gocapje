@@ -1,0 +1,100 @@
+import Image from "next/image";
+import styles from "./product.module.css";
+import { preloadStyle } from "next/dist/server/app-render/entry-base";
+import React from "react";
+
+
+const products = [
+    {
+        id      : 1,
+        brand   : "Nike",
+        name    : "Dunk Low Retro Men's Shoes",
+        price   : 1549000,
+        source  : "https://dynamic.zacdn.com/kIMkbg8M7vUuTud2yHpsJmsshng=/fit-in/346x500/filters:fill(ffffff):quality(90)/https://static-id.zacdn.com/p/nike-5843-9634434-1.jpg"
+    },
+    {
+        id      : 2,
+        brand   : "Nike",
+        name    : "NIKE DUNK LOW (GS)",
+        price   : 1349000,
+        source  : "https://dynamic.zacdn.com/jPqdE4KAhoq8gsJ1AJ9r4bG2FdQ=/filters:quality(70):format(webp)/https://static-id.zacdn.com/p/nike-7594-1884434-1.jpg"
+    },
+    {
+        id      : 3,
+        brand   : "Nike",
+        name    : "Downshifter 12 Women's Road Running Shoes",
+        price   : 819000,
+        source  : "https://dynamic.zacdn.com/5aDv3N10mvJKC7vO2mnWP0IPNuE=/filters:quality(70):format(webp)/https://static-id.zacdn.com/p/nike-2658-9958733-1.jpg"
+    },
+    {
+        id      : 4,
+        brand   : "Nike",
+        name    : "Downshifter 13 Shoes",
+        price   : 899000,
+        source  : "https://dynamic.zacdn.com/NFlgcWDG_bCXkIm8iOzBjsq5Bak=/filters:quality(70):format(webp)/https://static-id.zacdn.com/p/nike-9316-9464434-1.jpg"
+    },
+    {
+        id      : 5,
+        brand   : "Nike",
+        name    : "Revolution 7 Women's Road Running Shoes",
+        price   : 809000,
+        source  : "https://dynamic.zacdn.com/3wtX28bI_A0Y9NzgSa5fLcL4bYk=/filters:quality(70):format(webp)/https://static-id.zacdn.com/p/nike-2200-7774434-1.jpg"
+    },
+    {
+        id      : 6,
+        brand   : "Nike",
+        name    : "Flex Plus 2 Shoes",
+        price   : 809100, //899.000 diskon
+        source  : "https://dynamic.zacdn.com/esmkiA8m7px3RADKH825hysrPs0=/filters:quality(70):format(webp)/https://static-id.zacdn.com/p/nike-5008-3320324-1.jpg"
+    },
+    {
+        id      : 7,
+        brand   : "Nike",
+        name    : "Flex Plus 2 Running Shoes",
+        price   : 899000,
+        source  : "https://dynamic.zacdn.com/_AJRXUaeK4Ij4-A6bf5Lt0CaZWk=/filters:quality(70):format(webp)/https://static-id.zacdn.com/p/nike-4194-6500324-1.jpg"
+    },
+    {
+        id      : 8,
+        brand   : "Nike",
+        name    : "Flex Experience Run 12 Men's Road Running Shoes",
+        price   : 919000,
+        source  : "https://dynamic.zacdn.com/9zrZRzYQG7gDC_Ho5Di0HYzYgJc=/filters:quality(70):format(webp)/https://static-id.zacdn.com/p/nike-7288-6064434-1.jpg"
+    }
+];
+
+function numberWithCommas(price: number) {
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+}
+export default function Products () {
+    return (
+        <div className={styles["product"]}>
+            <div className={styles["product-wrapper"]}>
+                {products.map((product) => (
+                    <div className={styles['product-items']} key={product.id}>
+                        <a href={product.source}>
+                            <img src={product.source} alt="" />
+                            {/* <Image
+                            src={product.source}
+                            alt={product.name}
+                            width={275}
+                            height={400}
+                            />*/}
+                        </a>
+                        <div className={styles["products-details"]}>
+                            <a href={product.source}>
+                                <div className={styles.brand}>{product.brand}</div>
+                                <div className={styles.name}>{product.name}</div>
+                                <div className={styles.price}>Rp {numberWithCommas(product.price)}</div>
+                            </a>
+
+                        </div>
+                        <button>Add to Cart</button>
+                    </div>
+                ))
+
+                }
+            </div>
+        </div>
+    );
+}

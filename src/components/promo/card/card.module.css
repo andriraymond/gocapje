@@ -1,0 +1,7 @@
+.container {
+    border: var(--border-line-red);
+    display: flex;
+    height: 290px;
+    width: 100%;
+    margin: 20px 0;
+}

@@ -1,0 +1,61 @@
+"use client"
+import { useState, useEffect } from 'react';
+import { fetchProducts } from '@/lib/api.js';
+import styles from './product.module.css';
+import { Client } from '@vercel/postgres';
+
+interface ProductData {
+    ID: number;
+    brand: string;
+    name: string;
+    price: number;
+    source: string;
+}
+
+function numberWithCommas(price: number) {
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+}
+
+export default function Products() {
+    const [products, setProducts] = useState<ProductData[]>([]);
+
+    useEffect(() => {
+        const getProducts = async () => {
+            try {
+                const data = await fetchProducts();
+                setProducts(data.Data); // Adjusting to match the JSON structure
+                // Atas ini menjadi letak masalah sehingga code tidak berjalan
+            } catch (error) {
+                console.error('Failed to fetch products:', error);
+            }
+        };
+
+        getProducts();
+    }, []);
+
+    return (
+        <div className={styles.product}>
+            <div className={styles['product-wrapper']}>
+                {Array.isArray(products) ? (
+                    products.map((product) => (
+                        <div className={styles['product-items']} key={product.ID}> {/* Adjusted key to product.ID */}
+                            <a href={product.source}>
+                                <img src={product.source} alt="" />
+                            </a>
+                            <div className={styles['products-details']}>
+                                <a href={product.source}>
+                                    <div className={styles.brand}>{product.brand}</div>
+                                    <div className={styles.name}>{product.name}</div>
+                                    <div className={styles.price}>Rp {numberWithCommas(product.price)}</div>
+                                </a>
+                            </div>
+                            <button>Add to Cart</button>
+                        </div>
+                    ))
+                ) : (
+                    <p>No products available</p>
+                )}
+            </div>
+        </div>
+    );
+}

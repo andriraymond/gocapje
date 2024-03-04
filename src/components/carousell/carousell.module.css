@@ -1,0 +1,58 @@
+.carousell {
+    margin: 14px 0;
+    position: relative;
+    min-height: 240px;
+    height: 350px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    border: var(--border-line-red);
+}
+
+.image {
+    position: relative;
+    width: 100%;
+    object-fit: cover;
+    /* height: 100%; */
+    /* height: 300px; */
+    object-fit: cover;
+    border: var(--border-line-red);
+    border-radius: 12px;
+    /* display: flex; */
+    /* width: 100%; */
+    /* justify-content: center; */
+    /* align-items: center; */
+}
+
+.image img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    height: auto;
+    border-radius: 12px;
+}
+
+.buttons {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    z-index: var(--container); /* Menempatkan tombol di atas gambar */
+    transform: translateY(-50%);
+}
+.thumbnail {
+    margin-top: 20px;
+    z-index: var(--container); /* Menempatkan thumbnail di atas gambar */
+}
+.thumbnail button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.thumbnail button:hover {
+    background-color: #ddd;
+}

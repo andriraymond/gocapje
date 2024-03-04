@@ -1,0 +1,61 @@
+"use client"
+import React, { useEffect, useState } from "react";
+import { fetchData } from '@/lib/api.js';
+import Image from "next/image";
+import styles from './category.module.css';
+
+interface CategoryData {
+    ID: number;
+    Image : string;
+}
+
+export default function CategoryComponent () {
+    const [categoryData, setCategoryData] = useState<CategoryData[]>([]);
+    const [currentCategory, setCurrentCategory] = useState(0);
+
+    useEffect(() => {
+        async function fetchCategoryData() {
+            try {
+                const response = await fetchData();
+                setCategoryData(response.Data);         // Mengatur data kategori dari respons API
+            } catch (error) {
+                console.error('Gagal mengambil data Banner', error);
+                // setCategoryData(null)                // Opsional: Atur data kosong jika terjadi kesalahan
+            }
+        }
+        fetchCategoryData();
+
+        // Set interval untuk ganti data setiap 5 detik
+        const interval  = setInterval(() => {
+            setCurrentCategory(currentCategory => (currentCategory + 1) % categoryData.length);
+        }, 5000); // 5000 = 5 detik
+
+        return () => clearInterval(interval);
+    }, [categoryData.length]);
+
+    return (
+        <div>
+            {categoryData.length > 0 ? (
+                <div className={styles["container-category"]}>
+                    {/* {categoryData.map(category => (
+                        <div key={category.ID}>
+                            <img src={category.Image} alt={category.ID} />
+                        </div>
+                    ))
+                    } */}
+                    <img src={categoryData[currentCategory].Image} alt={categoryData[currentCategory].ID}/>
+                    {/* <Image
+                        src={categoryData[currentCategory].Image}
+                        alt={categoryData[currentCategory].ID.toString()} // Pastikan alt merupakan string
+                        layout="fill"
+                        objectFit="cover"
+                    /> */}
+                </div>
+            ) : (
+                <div className={styles["container-category-skeleton"]}>
+                    <img src="" alt="" />
+                </div>
+            )}
+        </div>
+    );
+}

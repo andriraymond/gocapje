@@ -5,7 +5,7 @@ import Image from "next/image";
 import styles from "./carousell.module.css";
 
 interface BannerData {
-  ID: number;
+  ID: string;
   Image: string;
 }
 

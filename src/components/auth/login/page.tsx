@@ -47,7 +47,8 @@ const LoginForm = () => {
       );
       router.push("/");
     } else {
-      setError(loginError);
+      // setError(loginError);
+      console.log("Erro Login");
     }
   };
 

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import styles from "./links.module.css";
 import NavLink from "./navLink/navLinks";
+// import { NavLink } from "react-router-dom";
 import { useRouter } from "next/navigation";
 
 const links = [
@@ -81,7 +82,7 @@ const Links = ({}) => {
         ) : (
           <NavLink
             item={{ title: "Login", path: "/login" }}
-            onClick={handleLogin}
+            // onClick={handleLogin}
           />
         )}
       </div>

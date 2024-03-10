@@ -1,0 +1,42 @@
+import { MongoClient } from "mongodb";
+import { NextResponse } from "next/server";
+
+export async function POST(request) {
+  let body = await request.json();
+
+  // const uri = process.env.NEXT_ATLAS_URI
+  const uri =
+    "mongodb+srv://gocapje-localhost:LYmy2mswmB7mHkZO@cluster0.vyyovtd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+
+  const client = new MongoClient(uri);
+  try {
+    const database = client.db("data");
+    const values = database.collection("values");
+
+    const data = await values.insertOne(body);
+    return NextResponse.json({ ok: true, data });
+
+    console.log(movie);
+  } finally {
+    await client.close();
+  }
+  run().catch(console.dir);
+}
+
+// import { NextResponse } from "next/server";
+// import { connectToDatabase } from "../../../lib/database/mongoose";
+
+// export const GET = async (request, response)=> {
+//         const { database } = await connectToDatabase();
+//         const collection = database.collection(process.env.NEXT_ATLAS_COLLECTION);
+
+//         const results = await collection.find({})
+//         .project({
+//             "grades": 0,
+//             "borough": 0,
+//             "restaurant_id": 0
+//         })
+//         .limit(10).toArray();
+//         console.log("sukses route")
+//         return NextResponse.json(results)
+// }

@@ -1,0 +1,34 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 30px;
+  color: white;
+}
+
+.form input {
+  padding: 10px 16px;
+  /* background-color: var(--bg); */
+  /* color: var(--textColor); */
+  border: none;
+  border-radius: 5px;
+  color: black;
+}
+
+.form button {
+  padding: 10px 16px;
+  cursor: pointer;
+  background-color: var(--btn);
+  color: var(--textColor);
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+}
+
+.alert-register {
+  padding: 10px 16px;
+  /* background-color: red; */
+  border: 1px solid red;
+  border-radius: 5px;
+  color: red;
+}

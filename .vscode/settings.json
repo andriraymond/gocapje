@@ -1,0 +1,10 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.tabSize": 4,
+  "workbench.editor.tabSizing": "fit",
+  "workbench.editor.pinnedTabSizing": "compact",
+  "editor.detectIndentation": true,
+  "indentRainbow.colorOnWhiteSpaceOnly": false
+}

@@ -2,7 +2,7 @@ import Head from "next/head";
 import type { Metadata } from "next";
 import Image from "next/image";
 import styles from "./home.module.css"
-import HomeCarousell from "@/components/carousell/carousell";
+import HomeCarousell from "@/components/___carousell/carousell";
 import Products from "@/components/home/product/product";
 import PromoCard from "@/components/promo/card/card";
 import BannerComponent from "@/components/home/carousell/carousell";

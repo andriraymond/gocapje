@@ -1,0 +1,30 @@
+.container {
+  font-size: 14px !important;
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper {
+  width: 500px;
+  background-color: var(--bgSoft);
+  border: var(--border-line-red);
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 30px;
+  border-radius: 5px;
+}
+
+.github {
+  width: 100%;
+  padding: 10px 16px;
+  cursor: pointer;
+  background-color: #fff;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+}

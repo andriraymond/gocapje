@@ -2,18 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+/* add skeleton css */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 :root {
   --bg: #0d0c22;
   --bgSoft: #2d2b42;
   --text: white;
   --textSoft: #e5e5e5;
   --btn: #3673fd;
-  
+
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
   --background-base: #eaecee;
   --background-skeleton: #eaecee;
+  /* --background-skeleton: red; */
 
   --navbar: 2;
   --container: 1;
@@ -21,10 +26,12 @@
 
   /* Button */
   --border-line-black: 1px solid #252525;
+  --border-line-grey: 1px solid #e0e2e9;
 
   /* Border- Line for Test Design */
   --border-line-red: 0px solid red;
 
+  font-family: "Poppins", "sans-serif";
 }
 
 @media (prefers-color-scheme: dark) {
@@ -38,7 +45,10 @@
 body {
   /* background-color: white;
   color: black; */
-  background-color:var(--bgSoft);
+  background-color: var(--bgSoft);
+  font-family: "Poppins", sans-serif;
+  /* font-style: normal;
+  font-weight: 400; */
 
   /* color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -47,7 +57,9 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb)); */
-    border: var(--border-line-red);
+  border: var(--border-line-red);
+  margin: 0;
+  padding: 0;
 }
 
 .container {
@@ -62,7 +74,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
   border: var(--border-line-red);
 }
 
@@ -70,8 +82,34 @@ body {
   height: 270px;
 }
 
+#skeleton {
+  background-color: var(--background-skeleton);
+  animation: pulse 2s;
+}
+
+svg {
+  position: absolute;
+  display: flex;
+  height: 16px;
+  width: auto;
+  padding-right: 10px;
+  margin: 0 0 0 330px;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
   }
 }

@@ -1,39 +1,12 @@
-.container-banner img {
-  border: var(--border-line-red);
-  /* background-color: var(--background-base); */
-  height: 100%;
-  width: 100%;
-  border-radius: 12px;
-  margin: 20px 0;
-  filter: drop-shadow(6px 3px 6px #868686);
-}
-
-.container-banner {
-  margin: 0;
-  padding: 0;
-  display: block;
-  top: 0;
-}
-
-.container-banner-skeleton {
-  margin: 20px 0;
-  padding: 0;
-  top: 0;
-  width: 1178px; /* Atur lebar sesuai kebutuhan */
-  width: 100%;
-  height: auto;
-  min-height: 296px; /* Atur tinggi sesuai kebutuhan */
-  /* background-color: var(--background-skeleton); */
-  border-radius: 12px;
-  border: var(--border-line-red);
-  /* animation: pulse 2s; */
-}
-
-.banner {
+.carousell {
   margin: 14px 0;
   position: relative;
+  min-height: 240px;
+  height: 350px;
   display: flex;
-  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
   border: var(--border-line-red);
 }
 
@@ -41,9 +14,15 @@
   position: relative;
   width: 100%;
   object-fit: cover;
+  /* height: 100%; */
+  /* height: 300px; */
   object-fit: cover;
   border: var(--border-line-red);
   border-radius: 12px;
+  /* display: flex; */
+  /* width: 100%; */
+  /* justify-content: center; */
+  /* align-items: center; */
 }
 
 .image img {
@@ -76,4 +55,20 @@
 
 .thumbnail button:hover {
   background-color: #ddd;
+}
+
+/* skeleton-animation {
+  animation: pulse 2s;
+} */
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
 }

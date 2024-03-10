@@ -1,0 +1,104 @@
+.form {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  border: var(--border-line-red);
+  background-color: var(--textColor);
+  color: var(--textColor);
+  gap: 12px;
+  padding: 10px 20px;
+}
+
+.title-container {
+  margin: 10px 0;
+  display: flex;
+  font-size: 20px;
+  font-weight: bold;
+  justify-content: start;
+}
+
+.form input {
+  padding: 10px 16px;
+  /* background-color: var(--bg); */
+  width: inherit;
+  color: var(--textColor);
+  border: none;
+  border-radius: 6px;
+  border: var(--border-line-grey);
+}
+
+.form input:focus-visible {
+  /* border: 10px solid red; */
+}
+
+.form button {
+  padding: 10px 16px;
+  cursor: pointer;
+  background-color: var(--btn);
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+}
+
+.alert-login {
+  padding: 10px 16px;
+  /* background-color: red; */
+  border: 1px solid red;
+  border-radius: 5px;
+  color: red;
+}
+
+/* PlaceHolder */
+.emailInput {
+  position: relative;
+}
+
+.emailInput input[type="text"] {
+  padding-left: 30px;
+}
+
+.emailInput .icon {
+  position: absolute;
+  top: 50%;
+  left: 10px; /* atur posisi ikon */
+  transform: translateY(-50%);
+}
+
+.link {
+  /* color: var(--textSoft); */
+  color: #969ab8;
+}
+
+.fieldEmail,
+.fieldPassword {
+  width: 100%;
+  /* border: var(--border-line-grey); */
+  border-radius: 6px;
+}
+
+.fieldPassword {
+  display: flex;
+  align-items: center;
+  .svg {
+    padding-right: 20px;
+  }
+}
+
+.form b {
+  color: var(--btn);
+}
+.btn-forget-password {
+  display: flex;
+  font-size: 12px;
+  font-weight: 500;
+  height: auto;
+  align-items: center;
+  justify-content: end;
+}
+
+.btn-register {
+  display: flex;
+  font-size: 12px;
+  justify-content: start;
+}

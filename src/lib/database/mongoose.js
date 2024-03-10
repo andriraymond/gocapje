@@ -22,11 +22,14 @@ export async function connectToDatabase() {
             if (!global._mongoClient) {
                 mongoClient = await (new MongoClient(uri, options)).connect();
                 global._mongoClient = mongoClient;
+                console.log("log 1 sukses")
             } else {
                 mongoClient = global._mongoClient;
+                console.log("log 2 sukses")
             }
         } else {
             mongoClient = await (new MongoClient(uri, options)).connect();
+            console.log("log 3 sukses")
         }
         database = await mongoClient.db(process.env.NEXT_ATLAS_DATABASE);
         return { mongoClient, database };

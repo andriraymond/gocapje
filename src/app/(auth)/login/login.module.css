@@ -1,29 +1,57 @@
-.container{
-    font-size: 14px !important;
-    display: flex;
-    height: 100vh;
-    align-items: center;
-    justify-content: center;
+.container {
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  height: 100vh;
+  width: 1280px;
+  width: 100%;
+  padding: 0 50px;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background-color);
 }
 
-.wrapper{
-    width: 500px;
-    background-color: var(--bgSoft);
-    padding: 50px;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    gap: 30px;
-    border-radius: 5px;
+.wrapper {
+  /* width: 100%; */
+  min-width: 500px;
+  background-color: var(--background-base);
+  background-color: #fff;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  /* gap: 30px; */
+  /* border-radius: 5px; */
+  height: 100vh;
+  justify-content: center;
+  border: var(--border-line-red);
+}
+.wrapperSlide {
+  /* width: 55%; */
+  min-width: 550px;
+  background-color: var(--background-base);
+  background-color: #fff;
+  text-align: center;
+  height: 100vh;
+  /* width: auto; */
+  justify-content: center;
+  border: var(--border-line-red);
 }
 
-.github{
-    width: 100%;
-    padding: 20px;
-    cursor: pointer;
-    background-color: #fff;
-    color: #000;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
+.wrapperSlide img {
+  display: flex;
+  object-fit: cover;
+  height: 100vh;
+  width: 100%;
+}
+
+.github {
+  width: 100%;
+  /* padding: 20px; */
+  cursor: pointer;
+  background-color: #fff;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
 }

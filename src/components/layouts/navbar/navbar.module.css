@@ -17,7 +17,9 @@
   justify-content: space-between;
 }
 
-.brand, .logo, .brand img {
+.brand,
+.logo,
+.brand img {
   display: inherit;
   max-height: 40px;
   height: 100%;

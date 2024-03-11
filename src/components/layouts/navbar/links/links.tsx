@@ -75,13 +75,14 @@ const Links = ({}) => {
             <button
               type='button'
               className={styles.logout}
+              id='btn-logout'
               onClick={handleLogout}>
               Logout
             </button>
           </>
         ) : (
           <NavLink
-            item={{ title: "Login", path: "/login" }}
+            item={{ title: "Login", path: "/logins" }}
             // onClick={handleLogin}
           />
         )}

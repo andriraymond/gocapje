@@ -54,7 +54,7 @@ const LoginForm = () => {
 
   return (
     <>
-      <form className={styles.form} onSubmit={handleLogin}>
+      <form className={styles.form} id='login-form' onSubmit={handleLogin}>
         <div className={styles["title-container"]}>Log In</div>
         {error && <p className={styles["alert-login"]}>{error}</p>}
         <div className={styles.fieldEmail}>
@@ -62,6 +62,7 @@ const LoginForm = () => {
             type='text'
             placeholder='Email'
             name='email'
+            id='email'
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
@@ -71,6 +72,7 @@ const LoginForm = () => {
             type={showPassword ? "text" : "password"}
             placeholder='Password'
             name='password'
+            id='password'
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
@@ -80,7 +82,9 @@ const LoginForm = () => {
             <FaEye onClick={togglePasswordVisibility} />
           )}
         </div>
-        <button type='submit'>Login</button>
+        <button type='submit' id='btn-login'>
+          Login
+        </button>
         <div className={styles["btn-forget-password"]}>
           <Link href='/forgot-password' className={styles.link}>
             <b>Forgot Password?</b>

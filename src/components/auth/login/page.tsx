@@ -48,7 +48,7 @@ const LoginForm = () => {
       router.push("/");
     } else {
       // setError(loginError);
-      console.log("Erro Login");
+      setError(loginError ?? "Unknown error occurred.");
     }
   };
 

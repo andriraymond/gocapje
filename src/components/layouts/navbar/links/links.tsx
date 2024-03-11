@@ -82,7 +82,7 @@ const Links = ({}) => {
           </>
         ) : (
           <NavLink
-            item={{ title: "Login", path: "/logins" }}
+            item={{ title: "Login", path: "/login" }}
             // onClick={handleLogin}
           />
         )}

@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useState } from "react";
 import { fetchBanners } from "@/lib/api.js";
 import styles from "./carousell.module.css";
@@ -17,7 +18,7 @@ export default function CarousellComponent() {
 
   return (
     <div className={styles.container}>
-      <img src='./assets/slide-login/slide-01.webp' alt='' />
+      <img src='./assets/slide-login/slide-01.jpg' alt='' />
     </div>
   );
 }

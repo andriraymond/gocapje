@@ -1,11 +1,10 @@
-import Head from "next/head";
 import type { Metadata } from "next";
-import Image from "next/image";
-import styles from "./home.module.css"
+import styles from "./home.module.css";
 import HomeCarousell from "@/components/___carousell/carousell";
 import Products from "@/components/home/product/product";
 import PromoCard from "@/components/promo/card/card";
 import BannerComponent from "@/components/home/carousell/carousell";
+import Loading from "./loading";
 
 // Add Title for HomePage
 
@@ -17,18 +16,17 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     // <div className={styles.container}>Home Page</div>
-    <div className="container">
-      <Head>
-        <title>Home Page | gocapje</title>
-      </Head>
+    <div className='container'>
       <main>
-        {/* <HomeCarousell/> */}
-        <BannerComponent/>
-        {/* <PromoCard/> */}
-        {/* <CategoryComponent/> */}
-        <Products/>
-        {/* <div className={styles.content}>Home Page</div> */}
+        <>
+          {/* <HomeCarousell/> */}
+          <BannerComponent />
+          {/* <PromoCard/> */}
+          {/* <CategoryComponent/> */}
+          <Products />
+          {/* <div className={styles.content}>Home Page</div> */}
+        </>
       </main>
     </div>
-    );
+  );
 }

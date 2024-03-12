@@ -1,12 +1,15 @@
 import styles from "./register.module.css";
 import RegisterForm from "@/components/auth/register/page";
 import HomeCarousell from "@/components/___carousell/carousell";
+import CarousellComponent from "@/components/common/carousell/carousell";
 
 export default function RegisterPage() {
   return (
     <div className={styles.container}>
-      <div className={styles.wrapper}>
-        <HomeCarousell />
+      <div className={styles.wrapperSlide}>
+        {/* <HomeCarousell />
+        <CarousellComponent /> */}
+        <CarousellComponent />
         {/* <form action=''></form>
         <RegisterForm /> */}
       </div>

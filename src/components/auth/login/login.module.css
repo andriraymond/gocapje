@@ -101,4 +101,54 @@
   display: flex;
   font-size: 12px;
   justify-content: start;
+  margin-top: 10px;
+}
+
+.flex-line {
+  margin-top: 10px;
+}
+
+.flex-line span {
+  color: #969ab8;
+}
+
+.span-line {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left-line,
+.right-line {
+  width: 90%;
+  height: 0px;
+  border-top: 0.5px solid var(--textSoft);
+  margin: 0 8px;
+}
+
+.btn-login {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.btn-login button {
+  background-color: white;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  height: 36px;
+  border: var(--border-line-grey);
+  color: black;
+  font-weight: 500;
+  gap: 10px;
+}
+
+.icon-google {
+  display: flex;
+  object-fit: cover;
+  height: 20px;
+  width: auto;
 }

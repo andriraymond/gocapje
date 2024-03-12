@@ -1,87 +1,153 @@
 "use client";
-import React from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { authenticateUser } from "@/lib/auth.js";
 import { useRouter } from "next/navigation";
-import { FormEvent, MouseEvent } from "react";
+import { FormEvent } from "react";
 import styles from "./register.module.css";
 import Link from "next/link";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
-const RegisterForm = () => {
-  const [name, setName] = useState("");
+export default function RegisterForm() {
   const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [showPasswordConfirmation, setShowPasswordConfirmation] =
+    useState(false);
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [error, setError] = useState("");
   const router = useRouter();
 
-  const handleGoBack = () => {
-    router.back();
+  // Session
+  const [session, setSession] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+
+  useEffect(() => {
+    const sessionData = localStorage.getItem("session");
+    if (sessionData) {
+      const { session, isAdmin } = JSON.parse(sessionData);
+      setSession(session);
+      setIsAdmin(isAdmin);
+    }
+  }, []);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const secondTogglePasswordVisibility = () => {
+    setShowPasswordConfirmation(!showPasswordConfirmation);
   };
 
   const handleRegister = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const { success, error: RegisterError } = await authenticateUser(
+    const { success, error: registerError } = await authenticateUser(
       email,
       password
     );
     if (success) {
-      localStorage.setItem("isLoggedIn", "true");
+      setSession(true);
+      setShowSuccessMessage(true);
+
+      localStorage.setItem(
+        "session",
+        JSON.stringify({ session: true, isAdmin })
+      );
       router.push("/");
     } else {
-      if (RegisterError) {
-        setError(RegisterError);
-      }
+      // setError(registerError);
+      setError(registerError ?? "Unknown error occurred.");
     }
   };
 
   return (
-    <form className={styles.form} onSubmit={handleRegister}>
-      <button onClick={handleGoBack}>Kembali</button>
-      {error && <p className={styles["alert-register"]}>{error}</p>}
-      <input
-        type='text'
-        placeholder='Full Name'
-        name='name'
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-      <input
-        type='text'
-        placeholder='Email'
-        name='email'
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
-        type='text'
-        placeholder='Phone Number'
-        name='phone'
-        value={phone}
-        onChange={(e) => setPhone(e.target.value)}
-      />
-      <input
-        type='password'
-        placeholder='Password'
-        name='password'
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <input
-        type='password'
-        placeholder='Password Confirmation'
-        name='passwordConfirmation'
-        value={passwordConfirmation}
-        onChange={(e) => setPasswordConfirmation(e.target.value)}
-      />
-      <button type='submit'>Register</button>
-      {/* {error && <p className='alert-Register'>{error}</p>} */}
-      <Link href='/login'>
-        {"Already have an account?"} <b>Log In</b>
-      </Link>
-    </form>
+    <>
+      <form
+        className={styles.form}
+        id='register-form'
+        onSubmit={handleRegister}>
+        <div className={styles["title-container"]}>Sign Up</div>
+        {error && <p className={styles["alert-register"]}>{error}</p>}
+        <div className={styles.fieldEmail}>
+          <input
+            type='text'
+            placeholder='Email'
+            name='email'
+            id='email'
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+        <div className={styles.fieldPassword}>
+          <input
+            type={showPassword ? "text" : "password"}
+            placeholder='Password'
+            name='password'
+            id='password'
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          {showPassword ? (
+            <FaEyeSlash onClick={togglePasswordVisibility} />
+          ) : (
+            <FaEye onClick={togglePasswordVisibility} />
+          )}
+        </div>
+        <div className={styles.fieldPassword}>
+          <input
+            type={showPasswordConfirmation ? "text" : "password"}
+            placeholder='Repeat Password'
+            name='password-confirmation'
+            id='password-confirmation'
+            value={passwordConfirmation}
+            onChange={(e) => setPasswordConfirmation(e.target.value)}
+          />
+          {showPasswordConfirmation ? (
+            <FaEyeSlash onClick={secondTogglePasswordVisibility} />
+          ) : (
+            <FaEye onClick={secondTogglePasswordVisibility} />
+          )}
+        </div>
+        <button type='submit' id='btn-register'>
+          Sign Up
+        </button>
+        <div className={styles["flex-line"]}>
+          <div className={styles["span-line"]}>
+            <div className={styles["left-line"]}></div>
+            <span className='or'>or</span>
+            <div className={styles["right-line"]}></div>
+          </div>
+        </div>
+        <div className={styles["btn-register"]}>
+          <button type='reset'>
+            {" "}
+            <img
+              src='./assets/icon-google.webp'
+              alt=''
+              className={styles["icon-google"]}
+            />
+            Google
+          </button>
+          <button type='reset'>
+            <img
+              src='https://static.xx.fbcdn.net/rsrc.php/yT/r/aGT3gskzWBf.ico?_nc_eui2=AeHz4CNewVqUH5ldeK3KvgRGrSiY817De8atKJjzXsN7xiZPQWQJHqRMVzmbNqYdFtHxZjIdpPsauTRVJEzMLdZU'
+              alt=''
+              className={styles["icon-google"]}
+            />
+            Facebook
+          </button>
+        </div>
+        <div className={styles["btn-login"]}>
+          <Link href='/login' className={styles.link}>
+            {"Already have and account?"} <b>Log In</b>
+          </Link>
+        </div>
+      </form>
+      {showSuccessMessage && (
+        <div className={styles.successMessage}>
+          <p>Register berhasil!</p>
+        </div>
+      )}
+    </>
   );
-};
-
-export default RegisterForm;
+}

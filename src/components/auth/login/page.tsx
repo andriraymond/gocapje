@@ -90,6 +90,32 @@ const LoginForm = () => {
             <b>Forgot Password?</b>
           </Link>
         </div>
+        <div className={styles["flex-line"]}>
+          <div className={styles["span-line"]}>
+            <div className={styles["left-line"]}></div>
+            <span className='or'>or</span>
+            <div className={styles["right-line"]}></div>
+          </div>
+        </div>
+        <div className={styles["btn-login"]}>
+          <button type='reset'>
+            {" "}
+            <img
+              src='./assets/icon-google.webp'
+              alt=''
+              className={styles["icon-google"]}
+            />
+            Google
+          </button>
+          <button type='reset'>
+            <img
+              src='https://static.xx.fbcdn.net/rsrc.php/yT/r/aGT3gskzWBf.ico?_nc_eui2=AeHz4CNewVqUH5ldeK3KvgRGrSiY817De8atKJjzXsN7xiZPQWQJHqRMVzmbNqYdFtHxZjIdpPsauTRVJEzMLdZU'
+              alt=''
+              className={styles["icon-google"]}
+            />
+            Facebook
+          </button>
+        </div>
         <div className={styles["btn-register"]}>
           <Link href='/register' className={styles.link}>
             {"Don't have an account?"} <b>Sign Up</b>

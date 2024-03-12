@@ -1,29 +1,10 @@
 .container {
   display: flex;
-  padding-left: 50px;
-  padding-right: 50px;
   font-size: 12px;
   display: flex;
-  /* justify-content: space-between; */
   height: 100%;
   width: 100%;
-  /* align-items: center;
-  justify-content: center;
-
-  background-color: var(--background-color);
-  background-color: white;
-  padding: 60px 0;
-  width: 1536px;
-  margin: auto;
-  padding-left: 50px;
-  padding-right: 50px;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  /* justify-content: center; */
-  /* border: var(--border-line-red); */
+  border: var(--border-line-red);
 }
 
 .wrapper {

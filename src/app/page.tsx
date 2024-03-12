@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     // <div className={styles.container}>Home Page</div>
-    <div className='container'>
+    <div className='container container-content'>
       <main>
         <>
           {/* <HomeCarousell/> */}

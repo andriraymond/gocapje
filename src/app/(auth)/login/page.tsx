@@ -13,15 +13,17 @@ const LoginPage = () => {
   }, []); // Efek ini hanya berjalan sekali saat komponen terpasang
 
   return (
-    <div className={styles.container}>
-      <div className={styles.wrapper}>
-        <form action={handleGithubLogin}>
-          {/* <button className={styles.github}>Login with Github</button> */}
-        </form>
-        <LoginForm />
-      </div>
-      <div className={styles.wrapperSlide}>
-        <CarousellComponent />
+    <div className='container'>
+      <div className={styles.container}>
+        <div className={styles.wrapper}>
+          <form action={handleGithubLogin}>
+            {/* <button className={styles.github}>Login with Github</button> */}
+          </form>
+          <LoginForm />
+        </div>
+        <div className={styles.wrapperSlide}>
+          <CarousellComponent />
+        </div>
       </div>
     </div>
   );

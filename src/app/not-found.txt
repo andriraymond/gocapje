@@ -1,5 +1,5 @@
 export default function NotFoundError() {
     return (
-        <div className="container">Halaman yang anda cari tidak ada</div>
+        <div className="container container-content">Halaman yang anda cari tidak ada</div>
     );
 }

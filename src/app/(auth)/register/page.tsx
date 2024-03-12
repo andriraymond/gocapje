@@ -5,17 +5,19 @@ import CarousellComponent from "@/components/common/carousell/carousell";
 
 export default function RegisterPage() {
   return (
-    <div className={styles.container}>
-      <div className={styles.wrapperSlide}>
-        {/* <HomeCarousell />
+    <div className='container'>
+      <div className={styles.container}>
+        <div className={styles.wrapperSlide}>
+          {/* <HomeCarousell />
         <CarousellComponent /> */}
-        <CarousellComponent />
-        {/* <form action=''></form>
+          <CarousellComponent />
+          {/* <form action=''></form>
         <RegisterForm /> */}
-      </div>
-      <div className={styles.wrapper}>
-        <form action=''></form>
-        <RegisterForm />
+        </div>
+        <div className={styles.wrapper}>
+          <form action=''></form>
+          <RegisterForm />
+        </div>
       </div>
     </div>
   );

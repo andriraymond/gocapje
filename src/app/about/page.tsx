@@ -6,7 +6,5 @@ export const metadata: Metadata = {
 };
 
 export default function About() {
-  return (
-    <div className="container">About Page</div>
-  );
+  return <div className='container container-content'>About Page</div>;
 }

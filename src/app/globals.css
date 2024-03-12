@@ -64,11 +64,11 @@ body {
 
 .container {
   background-color: white;
-  padding: 60px 0;
+  /* padding: 60px 0; */
   width: 1536px;
   margin: auto;
-  padding-left: 50px;
-  padding-right: 50px;
+  /* padding-left: 50px;
+  padding-right: 50px; */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -78,6 +78,9 @@ body {
   border: var(--border-line-red);
 }
 
+.container-content {
+  padding: 60px 50px;
+}
 .carousell img {
   height: 270px;
 }

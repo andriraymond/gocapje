@@ -1,32 +1,35 @@
-import axios from 'axios';
+"use server";
+// import axios from "axios";
+import axios, { AxiosError } from "axios";
 
 // Link URL Banner
-const bannersURL = "https://andriraymond.github.io/json-repository/banners.json"
+const bannersURL =
+  "https://andriraymond.github.io/json-repository/banners.json";
 
 // Link URL Products
-const productsURL = "https://andriraymond.github.io/json-repository/products.json"
-
+const productsURL =
+  "https://andriraymond.github.io/json-repository/products.json";
 
 // 01. Mengambil data Banners
 export async function fetchBanners() {
-    try {
-        const response = await axios.get(bannersURL);
-        return response.data;
-    } catch (err) {
-        console.error('Gagal mengambil data:', err);
-        return [];
-    }
+  try {
+    const response = await axios.get(bannersURL);
+    return response.data;
+  } catch (err) {
+    console.error("Gagal mengambil data:", err);
+    return [];
+  }
 }
 
 // 02. Mengambil data Products
 export async function fetchProducts() {
-    try {
-        const response = await axios.get(productsURL);
-        return response.data;
-    } catch (err) {
-        console.error('Gagal mengambil data:', err);
-        return [];
-    }
+  try {
+    const response = await axios.get(productsURL);
+    return response.data;
+  } catch (err) {
+    console.error("Gagal mengambil data:", err);
+    return [];
+  }
 }
 
 // export async function fetchData() {

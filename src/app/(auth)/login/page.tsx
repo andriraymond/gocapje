@@ -13,7 +13,7 @@ const LoginPage = () => {
     // Set timeout untuk mengubah loading menjadi false setelah 2 detik
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 1500);
+    }, 500);
 
     // Membersihkan timeout saat komponen unmount atau efek berubah
     return () => clearTimeout(timer);

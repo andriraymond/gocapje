@@ -7,10 +7,11 @@ import Loading from "@/app/loading";
 
 const LoginPage = () => {
   const [loading, setLoading] = useState(true); // State untuk menandai apakah sedang loading
+  const [cssLoaded, setCssLoaded] = useState(false); // State untuk menandai apakah CSS sudah dimuat
 
   // Menggunakan useEffect untuk mengatur loading menjadi false setelah beberapa saat
   useEffect(() => {
-    // Set timeout untuk mengubah loading menjadi false setelah 2 detik
+    // Set timeout untuk mengubah loading menjadi false setelah 500ms
     const timer = setTimeout(() => {
       setLoading(false);
     }, 500);
@@ -19,8 +20,19 @@ const LoginPage = () => {
     return () => clearTimeout(timer);
   }, []); // Efek ini hanya berjalan sekali saat komponen terpasang
 
+  // Menggunakan useEffect untuk menandai saat CSS selesai dimuat
+  useEffect(() => {
+    // Menandai bahwa CSS sudah dimuat setelah 100ms
+    const cssTimer = setTimeout(() => {
+      setCssLoaded(true);
+    }, 100);
+
+    // Membersihkan timeout saat komponen unmount atau efek berubah
+    return () => clearTimeout(cssTimer);
+  }, []);
+
   return (
-    <div className='container container-loading'>
+    <div className={`container ${cssLoaded ? "container-loading" : ""}`}>
       {/* Tampilkan konten hanya jika loading sudah selesai */}
       {!loading && (
         <div className={styles.container}>

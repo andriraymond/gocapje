@@ -126,8 +126,10 @@ svg {
 /* Loading */
 .flex {
   display: flex;
+  height: 100vh;
+  width: 100%;
 }
-
+/*
 .h-screen {
   height: 100vh;
 }
@@ -137,7 +139,7 @@ svg {
 }
 
 .justify-center {
-  justify-content: center;
+  justify-content: center;git
 }
 
 .bg-white {
@@ -149,11 +151,11 @@ svg {
 }
 
 .h-16 {
-  height: 4rem; /* You can adjust this value as needed */
+  height: 4rem; 
 }
 
 .w-16 {
-  width: 4rem; /* You can adjust this value as needed */
+  width: 4rem; 
 }
 
 .animate-spin {
@@ -161,7 +163,7 @@ svg {
 }
 
 .rounded-full {
-  border-radius: 9999px; /* For creating a circle */
+  border-radius: 9999px;
 }
 
 .border-4 {
@@ -173,7 +175,7 @@ svg {
 }
 
 .border-primary {
-  border-color: white; /* You can adjust this value to match your primary color */
+  border-color: white;
 }
 
 .border-t-transparent {
@@ -184,5 +186,5 @@ svg {
   to {
     transform: rotate(360deg);
   }
-}
+} */
 /* End Of Loading */

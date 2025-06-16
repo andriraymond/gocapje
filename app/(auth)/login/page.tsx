@@ -63,8 +63,8 @@
 
 "use client";
 import { handleGithubLogin } from "@/lib/action";
-import LoginForm from "@/components/auth/login/page";
-import CarousellComponent from "@/components/common/carousell/carousell";
+import LoginForm from "components/auth/login/page";
+import CarousellComponent from "components/common/carousell/carousell";
 import { useRouter } from "next/navigation";
 import styles from "./login.module.css";
 import React, { useEffect } from "react";

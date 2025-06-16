@@ -1,5 +1,7 @@
+'use client'
 import { useEffect, useState } from "react";
-import { authenticateUser } from "@/lib/auth.js";
+import { authLogin } from "@/lib/auth";
+// import { Login } from '../../../app/api/auth/login'
 import { useRouter } from "next/navigation";
 import { FormEvent } from "react";
 import styles from "./login.module.css";
@@ -33,7 +35,7 @@ const LoginForm = () => {
 
   const handleLogin = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const { success, error: loginError } = await authenticateUser(
+    const { success, error: loginError } = await authLogin(
       email,
       password
     );

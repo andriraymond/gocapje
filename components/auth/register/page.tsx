@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { authenticateUser } from "@/lib/auth.js";
+import { authRegister } from "@/lib/auth";
 import { useRouter } from "next/navigation";
 import { FormEvent } from "react";
 import styles from "./register.module.css";
@@ -8,6 +8,7 @@ import Link from "next/link";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 export default function RegisterForm() {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [showPasswordConfirmation, setShowPasswordConfirmation] =
@@ -41,7 +42,8 @@ export default function RegisterForm() {
 
   const handleRegister = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const { success, error: registerError } = await authenticateUser(
+    const { success, error: registerError } = await authRegister(
+      name,
       email,
       password
     );
@@ -68,6 +70,17 @@ export default function RegisterForm() {
         onSubmit={handleRegister}>
         <div className={styles["title-container"]}>Sign Up</div>
         {error && <p className={styles["alert-register"]}>{error}</p>}
+        
+        <div className={styles.fieldEmail}>
+          <input
+          type='text'
+          placeholder='Name'
+          name='name'
+          id='name'
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          />
+          </div>
         <div className={styles.fieldEmail}>
           <input
             type='text'

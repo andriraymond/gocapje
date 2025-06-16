@@ -7,8 +7,8 @@ import { headers } from "next/headers";
 
 // add navbar component
 // import Navbar from "@/components/layoutsnavbar/navbar";
-import Navbar from "@/components/layouts/navbar/navbar";
-import Footer from "@/components/layouts/footer/footer";
+import Navbar from "components/layouts/navbar/navbar";
+import Footer from "components/layouts/footer/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 

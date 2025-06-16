@@ -1,7 +1,7 @@
 import styles from "./register.module.css";
-import RegisterForm from "@/components/auth/register/page";
-import HomeCarousell from "@/components/___carousell/carousell";
-import CarousellComponent from "@/components/common/carousell/carousell";
+import RegisterForm from "components/auth/register/page";
+import HomeCarousell from "components/___carousell/carousell";
+import CarousellComponent from "components/common/carousell/carousell";
 
 export default function RegisterPage() {
   return (

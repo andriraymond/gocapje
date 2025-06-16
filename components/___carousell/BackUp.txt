@@ -35,7 +35,7 @@ const HomeCarousell = () => {
         <div className={styles.carousell}>
             <div className={styles.image}>
                 <a href={carousell[currentSlide].URL}>
-                    <Image
+                    <img
                         src={carousell[currentSlide].image}
                         alt={carousell[currentSlide].title}
                         width={900}
@@ -76,7 +76,7 @@ export default HomeCarousell;
 //             {carousell.map(carousel => (
 //                 <div className={styles.image} key={carousel.id}>
 //                     <a href={carousel.URL}>
-//                     <Image
+//                     <img
 //                     src={carousel.image}
 //                     alt={carousel.title}
 //                     width={900}

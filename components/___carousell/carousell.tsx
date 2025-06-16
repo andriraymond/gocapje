@@ -73,7 +73,7 @@ const HomeCarousell = () => {
         <section className={styles.carousell}>
             <div className={styles.image}>
                 <a href={carousell[currentSlide].URL}>
-                    <Image
+                    <img
                         src={carousell[currentSlide].image}
                         alt={carousell[currentSlide].title}
                         width={900}

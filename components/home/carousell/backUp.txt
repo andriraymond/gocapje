@@ -44,7 +44,7 @@ export default function CategoryComponent () {
                     ))
                     } */}
                     <img src={categoryData[currentCategory].Image} alt={categoryData[currentCategory].ID}/>
-                    {/* <Image
+                    {/* <img
                         src={categoryData[currentCategory].Image}
                         alt={categoryData[currentCategory].ID.toString()} // Pastikan alt merupakan string
                         layout="fill"

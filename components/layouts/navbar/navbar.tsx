@@ -17,7 +17,7 @@ const Navbar = () => {
         <div className={styles.container}>
           <div className={styles.brand}>
             <a href='/ '>
-              <Image
+              <img
                 src='/assets/gocapje-logo-white.svg'
                 alt='gocapje-logo'
                 width={120}

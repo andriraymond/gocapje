@@ -82,7 +82,7 @@ export default function Products() {
               products.map((product) => (
                 <div className={styles["product-items"]} key={product.ID}>
                   <a className={styles["product-items-image"]} href='/'>
-                    <Image src={product.source} alt={product.name} />
+                    <img src={product.source} alt={product.name} />
                   </a>
                   <div className={styles["products-details"]}>
                     <a href='/ '>

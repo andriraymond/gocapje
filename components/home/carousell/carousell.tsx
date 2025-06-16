@@ -47,11 +47,11 @@ export default function BannerComponent() {
         <>
           <div className={styles["container-banner"]}>
             <a href={bannerData[currentBanner].Image}>
-              <Image
+              <img
                 src={bannerData[currentBanner].Image}
                 alt={bannerData[currentBanner].ID}
               />
-              {/* <Image
+              {/* <img
                 src={bannerData[currentBanner].Image}
                 alt={bannerData[currentBanner].ID.toString()}
                 width={1180}

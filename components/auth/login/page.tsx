@@ -103,7 +103,7 @@ const LoginForm = () => {
         <div className={styles["btn-login"]}>
           <button type='reset'>
             {" "}
-            <Image
+            <img
               src='./assets/icon-google.webp'
               alt=''
               className={styles["icon-google"]}

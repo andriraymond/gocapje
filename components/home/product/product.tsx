@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { fetchProducts } from "@/lib/api.js";
 import styles from "./product.module.css";
+import Image from "next/image";
 // import { Client } from '@vercel/postgres';
 
 interface ProductData {
@@ -81,7 +82,7 @@ export default function Products() {
               products.map((product) => (
                 <div className={styles["product-items"]} key={product.ID}>
                   <a className={styles["product-items-image"]} href='/'>
-                    <img src={product.source} alt={product.name} />
+                    <Image src={product.source} alt={product.name} />
                   </a>
                   <div className={styles["products-details"]}>
                     <a href='/ '>

@@ -1,4 +1,5 @@
 'use client'
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { authLogin } from "@/lib/auth";
 // import { Login } from '../../../app/api/auth/login'
@@ -102,7 +103,7 @@ const LoginForm = () => {
         <div className={styles["btn-login"]}>
           <button type='reset'>
             {" "}
-            <img
+            <Image
               src='./assets/icon-google.webp'
               alt=''
               className={styles["icon-google"]}

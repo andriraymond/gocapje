@@ -4,6 +4,7 @@ import { fetchBanners } from "@/lib/api.js";
 import styles from "./carousell.module.css";
 import Image from "next/image";
 
+
 interface slideData {
   ID: number;
   Image: string;
@@ -18,7 +19,7 @@ export default function CarousellComponent() {
 
   return (
     <div className={styles.container}>
-      <img src='./assets/slide-login/slide-01.jpg' alt='' />
+      <Image src='./assets/slide-login/slide-01.jpg' alt='' />
     </div>
   );
 }

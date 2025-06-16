@@ -47,7 +47,7 @@ export default function BannerComponent() {
         <>
           <div className={styles["container-banner"]}>
             <a href={bannerData[currentBanner].Image}>
-              <img
+              <Image
                 src={bannerData[currentBanner].Image}
                 alt={bannerData[currentBanner].ID}
               />

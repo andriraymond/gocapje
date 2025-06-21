@@ -6,6 +6,8 @@ import { FormEvent } from "react";
 import styles from "./register.module.css";
 import Link from "next/link";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { CldImage } from 'next-cloudinary';
+import Image from 'next/image';
 
 export default function RegisterForm() {
   const [name, setName] = useState("");
@@ -101,9 +103,10 @@ export default function RegisterForm() {
             onChange={(e) => setPassword(e.target.value)}
           />
           {showPassword ? (
-            <FaEyeSlash onClick={togglePasswordVisibility} />
-          ) : (
             <FaEye onClick={togglePasswordVisibility} />
+          ) : (
+            // <FaEye onClick={togglePasswordVisibility} />
+            <FaEyeSlash onClick={togglePasswordVisibility} />
           )}
         </div>
         <div className={styles.fieldPassword}>
@@ -116,9 +119,9 @@ export default function RegisterForm() {
             onChange={(e) => setPasswordConfirmation(e.target.value)}
           />
           {showPasswordConfirmation ? (
-            <FaEyeSlash onClick={secondTogglePasswordVisibility} />
-          ) : (
             <FaEye onClick={secondTogglePasswordVisibility} />
+          ) : (
+            <FaEyeSlash onClick={secondTogglePasswordVisibility} />
           )}
         </div>
         <button type='submit' id='btn-register'>
@@ -134,25 +137,31 @@ export default function RegisterForm() {
         <div className={styles["btn-register"]}>
           <button type='reset'>
             {" "}
-            <img
-              src='./assets/icon-google.webp'
-              alt=''
-              className={styles["icon-google"]}
+            <CldImage
+              src='gocapje/assets/logos/icon-google.svg'
+              alt="google-logos"
+              id="google-logo"
+              width={20}
+              height={20}
             />
             Google
           </button>
+
           <button type='reset'>
-            <img
-              src='https://static.xx.fbcdn.net/rsrc.php/yT/r/aGT3gskzWBf.ico?_nc_eui2=AeHz4CNewVqUH5ldeK3KvgRGrSiY817De8atKJjzXsN7xiZPQWQJHqRMVzmbNqYdFtHxZjIdpPsauTRVJEzMLdZU'
-              alt=''
-              className={styles["icon-google"]}
+            <CldImage
+              src="/gocapje/assets/logos/icon-facebook.svg"
+              alt="facebook-logos"
+              id="facebook-logo"
+              width={20}
+              height={20}
             />
+
             Facebook
           </button>
         </div>
         <div className={styles["btn-login"]}>
           <Link href='/login' className={styles.link}>
-            {"Already have and account?"} <b>Log In</b>
+            {"Already have and account?"} <b>Login</b>
           </Link>
         </div>
       </form>

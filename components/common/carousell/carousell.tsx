@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { fetchBanners } from "@/lib/api.js";
 import styles from "./carousell.module.css";
 import Image from "next/image";
+import Link from 'next/link';
 
 
 interface slideData {
@@ -18,8 +19,13 @@ export default function CarousellComponent() {
   useEffect(() => {});
 
   return (
+    // <div className={styles.container}>
+    //   <img src='./assets/slide-login/slide-01.jpg' alt=''/>
+    // </div>
     <div className={styles.container}>
-      <img src='./assets/slide-login/slide-01.jpg' alt='' />
-    </div>
+    <Link href="/">
+      <img src="./assets/slide-login/slide-01.jpg" alt="Slide Login" />
+    </Link>
+  </div>
   );
 }

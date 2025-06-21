@@ -8,6 +8,7 @@ import { FormEvent } from "react";
 import styles from "./login.module.css";
 import Link from "next/link";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { CldImage } from 'next-cloudinary';
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
@@ -80,9 +81,9 @@ const LoginForm = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           {showPassword ? (
-            <FaEyeSlash onClick={togglePasswordVisibility} />
-          ) : (
             <FaEye onClick={togglePasswordVisibility} />
+          ) : (
+            <FaEyeSlash onClick={togglePasswordVisibility} />
           )}
         </div>
         <button type='submit' id='btn-login'>
@@ -103,19 +104,30 @@ const LoginForm = () => {
         <div className={styles["btn-login"]}>
           <button type='reset'>
             {" "}
-            <img
-              src='./assets/icon-google.webp'
-              alt=''
-              className={styles["icon-google"]}
+            
+            <CldImage
+              src='gocapje/assets/logos/icon-google.svg'
+              alt="google-logos"
+              id="google-logo"
+              width={20}
+              height={20}
             />
             Google
           </button>
           <button type='reset'>
-            <img
-              src='https://static.xx.fbcdn.net/rsrc.php/yT/r/aGT3gskzWBf.ico?_nc_eui2=AeHz4CNewVqUH5ldeK3KvgRGrSiY817De8atKJjzXsN7xiZPQWQJHqRMVzmbNqYdFtHxZjIdpPsauTRVJEzMLdZU'
+            <CldImage
+              src="/gocapje/assets/logos/icon-facebook.svg"
+              alt="facebook-logos"
+              id="facebook-logo"
+              width={20}
+              height={20}
+            />
+            {/* <img 
+              // src='https://static.xx.fbcdn.net/rsrc.php/yT/r/aGT3gskzWBf.ico?_nc_eui2=AeHz4CNewVqUH5ldeK3KvgRGrSiY817De8atKJjzXsN7xiZPQWQJHqRMVzmbNqYdFtHxZjIdpPsauTRVJEzMLdZU'
+              src='/facebook-logo'
               alt=''
               className={styles["icon-google"]}
-            />
+            /> */}
             Facebook
           </button>
         </div>

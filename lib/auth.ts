@@ -39,8 +39,8 @@ export async function hashPassword(password: string) {
   return await bcrypt.hash(password, 10);
 }
 
-export async function verifyPassword(password: string, hashed: string) {
-  return await bcrypt.hash(password, hashed);
+export async function verifyPassword(password: string, hashedPassword: string): Promise<boolean> {
+  return await bcrypt.compare(password, hashedPassword);
 }
 
 export function generateToken(payload: object) {
@@ -67,23 +67,6 @@ export async function authLogin(email: string, password: string) {
     user: res.ok ? data.user : null,
   };
 }
-
-// lib/registerUser.ts
-// export async function authRegister(name: string, email: string, password: string) {
-//   const res = await fetch("/api/auth/register", {
-//     method: "POST",
-//     headers: { "Content-Type": "application/json" },
-//     body: JSON.stringify({ name, email, password }),
-//   });
-
-//   const data = await res.json();
-
-//   return {
-//     success: res.ok,
-//     error: !res.ok ? data.error : null,
-//     user: res.ok ? data.user : null,
-//   };
-// }
 
 export async function authRegister(name: string, email: string, password: string) {
   const res = await fetch("/api/auth/register", {

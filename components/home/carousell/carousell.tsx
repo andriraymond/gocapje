@@ -41,7 +41,8 @@ export default function BannerComponent() {
       {loading ? ( // Tampilkan skeleton saat masih loading
         <div
           className={styles["container-banner-skeleton"]}
-          id='skeleton'></div>
+          id="skeleton"
+        ></div>
       ) : (
         // <div className='skeleton animate-pulse'></div>
         <>

@@ -16,3 +16,12 @@ model User {
 
     @@map("users")
 }
+
+model Photo {
+    id          Int    @id @default(autoincrement())
+    name        String
+    path        String
+    create_at   DateTime @default(now())
+
+    @@map("photos")
+}

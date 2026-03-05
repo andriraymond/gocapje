@@ -80,6 +80,8 @@ body {
 
 .container-content {
   padding: 60px 50px;
+  justify-content: center; 
+  /* Ini baru dibuat untuk upload page supaya center */
 }
 .carousell img {
   height: 270px;

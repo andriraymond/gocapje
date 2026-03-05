@@ -138,7 +138,8 @@ export default function RegisterForm() {
           <button type='reset'>
             {" "}
             <CldImage
-              src='gocapje/assets/logos/icon-google.svg'
+              // src='gocapje/assets/logos/icon-google.svg'
+              src='gocapje/assets/logos/icon-google'
               alt="google-logos"
               id="google-logo"
               width={20}

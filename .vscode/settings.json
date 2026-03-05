@@ -6,5 +6,6 @@
   "workbench.editor.tabSizing": "fit",
   "workbench.editor.pinnedTabSizing": "compact",
   "editor.detectIndentation": true,
-  "indentRainbow.colorOnWhiteSpaceOnly": false
+  "indentRainbow.colorOnWhiteSpaceOnly": false,
+  "vscode-pets.theme": "winter"
 }

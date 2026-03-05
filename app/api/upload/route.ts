@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import { v2 as cloudinary } from 'cloudinary';
 
+import { prisma } from '@/lib/prisma';
+
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME!,
   api_key: process.env.CLOUDINARY_API_KEY!,
@@ -11,6 +13,7 @@ export async function POST(req: Request) {
   const data = await req.formData();
   const file = data.get('file') as File;
   const namaFoto = data.get('namaFoto') as string;
+  const userId = parseInt(data.get('UserId') as string);
 
   const bytes = await file.arrayBuffer();
   const buffer = Buffer.from(bytes);
@@ -32,7 +35,23 @@ export async function POST(req: Request) {
         .end(buffer);
     });
 
-    return NextResponse.json({ url: (upload as any).secure_url });
+    const uploaded = upload as any;
+
+    // Simpan ke database
+    const saved = await prisma.photo.create({
+      data: {
+        name: namaFoto,
+        path: uploaded.public_id,
+      },
+    });
+
+    return NextResponse.json({
+      url: (upload as any).secure_url, 
+      data : (upload as any).folder + (upload as any).public_id,
+      path : (upload as any).public_id,
+      db : saved,
+
+    });
   } catch (err) {
     console.error('Upload failed:', err);
     return NextResponse.json({ error: 'Upload failed' }, { status: 500 });

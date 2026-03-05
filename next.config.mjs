@@ -7,6 +7,7 @@
 const nextConfig = {
     swcMinify: false,
     productionBrowserSourceMaps: true,
+    reactStrictMode: false,
   };
   
   export default nextConfig;

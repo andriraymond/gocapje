@@ -43,32 +43,41 @@ export default function Products() {
         <>
           <div
             className={styles["container-product-title-skeleton"]}
-            id='skeleton'></div>
+            id="skeleton"
+          ></div>
           <div className={styles["product-wrapper-skeleton"]}>
             <div
               className={styles["product-item-skeleton"]}
-              id='skeleton'></div>
+              id="skeleton"
+            ></div>
             <div
               className={styles["product-item-skeleton"]}
-              id='skeleton'></div>
+              id="skeleton"
+            ></div>
             <div
               className={styles["product-item-skeleton"]}
-              id='skeleton'></div>
+              id="skeleton"
+            ></div>
             <div
               className={styles["product-item-skeleton"]}
-              id='skeleton'></div>
+              id="skeleton"
+            ></div>
             <div
               className={styles["product-item-skeleton"]}
-              id='skeleton'></div>
+              id="skeleton"
+            ></div>
             <div
               className={styles["product-item-skeleton"]}
-              id='skeleton'></div>
+              id="skeleton"
+            ></div>
             <div
               className={styles["product-item-skeleton"]}
-              id='skeleton'></div>
+              id="skeleton"
+            ></div>
             <div
               className={styles["product-item-skeleton"]}
-              id='skeleton'></div>
+              id="skeleton"
+            ></div>
           </div>
         </>
       ) : (
@@ -81,11 +90,11 @@ export default function Products() {
             {Array.isArray(products) ? (
               products.map((product) => (
                 <div className={styles["product-items"]} key={product.ID}>
-                  <a className={styles["product-items-image"]} href='/'>
+                  <a className={styles["product-items-image"]} href="/">
                     <img src={product.source} alt={product.name} />
                   </a>
                   <div className={styles["products-details"]}>
-                    <a href='/ '>
+                    <a href="/ ">
                       {" "}
                       {/* Ganti product.source */}
                       <div className={styles.brand}>{product.brand}</div>
@@ -95,7 +104,7 @@ export default function Products() {
                       </div>
                     </a>
                   </div>
-                  <button className='button'>Add to Cart</button>
+                  <button className="button">Add to Cart</button>
                 </div>
               ))
             ) : (
